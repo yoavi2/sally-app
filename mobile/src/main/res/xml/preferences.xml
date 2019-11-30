@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:title="@string/pref_category_push_notification"
+            android:key="pref_key_push_notification_settings">
+    <CheckBoxPreference
+            android:key="pref_highscore_push_notification"
+            android:title="@string/pref_highscore_push_notification"
+            android:summary="@string/pref_highscore_push_notification_summ"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="@string/pref_category_about"
+            android:key="pref_key_about_settings">
+
+        <Preference
+                android:key="pref_rating"
+                android:title="@string/pref_rating"
+                android:summary="@string/pref_rating_summ">
+
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="http://play.google.com/store/apps/details?id=com.workout.sallyapp" />
+
+
+        </Preference>
+
+        <Preference
+                android:key="pref_licenses"
+                android:title="@string/pref_licenses"
+                android:summary="@string/pref_licenses_summary">
+
+            <intent android:action="activity.webview.open"
+                    android:data="@string/pref_licenses_url">
+                <extra android:name="activity.webview.KEY_TITLE"
+                       android:value="@string/pref_licenses" />
+            </intent>
+
+        </Preference>
+
+        <Preference
+                android:key="pref_privacy_policy"
+                android:title="@string/pref_privacy_policy"
+                android:summary="@string/pref_privacy_policy_summary">
+
+            <intent android:action="activity.webview.open"
+                    android:data="@string/pref_terms_url">
+                <extra android:name="activity.webview.KEY_TITLE"
+                       android:value="@string/pref_privacy_policy" />
+            </intent>
+        </Preference>
+
+        <Preference
+                android:key="pref_terms_and_conditions"
+                android:title="@string/pref_terms_and_conditions"
+                android:summary="@string/pref_terms_and_conditions_summary">
+
+            <intent android:action="activity.webview.open"
+                    android:data="@string/pref_terms_url">
+                <extra android:name="activity.webview.KEY_TITLE"
+                       android:value="@string/pref_terms_and_conditions" />
+            </intent>
+        </Preference>
+
+        <Preference
+                android:key="pref_support"
+                android:title="@string/pref_support"
+                android:summary="@string/pref_support_summary">
+
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="@string/pref_support_mailto">
+                <extra android:name="android.intent.extra.SUBJECT"
+                       android:value="@string/pref_support_mail_subject" />
+            </intent>
+
+        </Preference>
+
+        <Preference
+                android:key="pref_version"
+                android:title="@string/pref_version"
+                android:summary="1.0" >
+        </Preference>
+
+    </PreferenceCategory>
+</PreferenceScreen>

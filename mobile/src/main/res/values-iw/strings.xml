@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE resources [
+        <!ENTITY appname "SallyApp">
+        ]>
+
+<resources>
+    <string name="action_logout">התנתק</string>
+    <string name="action_new_group">קבוצה חדשה</string>
+    <string name="action_settings">הגדרות</string>
+    <string name="atleast_one_friend">עליך לבחור לפחות חבר אחד</string>
+    <string name="create">צור</string>
+    <string name="delete_score_title">למחוק תוצאה?</string>
+    <string name="error_creating_user">שגיאה ביצירת משתמש</string>
+    <string name="error_saving_user">שגיאה בשמירת משתמש</string>
+    <string name="exit_group_title">לצאת מהקבוצה?</string>
+    <string name="finished">סיימת!</string>
+    <string name="friends">חברים</string>
+    <string name="graph_scores_label">תוצאות</string>
+    <string name="group_member_count">%d חבר</string>
+    <string name="group_members_count">%d חברים</string>
+    <string name="group_name_label">שם:</string>
+    <string name="group_tab_name">קבוצות</string>
+    <string name="group_url_copied">לינק הצטרפות לקבוצה הועתק</string>
+    <string name="main_tab_name">אני</string>
+    <string name="no_groups_text">אין קבוצות \\n הוסף קבוצה חדשה ותתחיל להתאמן עם חברים!</string>
+    <string name="no_internet_connection">אין חיבור לאינטרנט</string>
+    <string name="no_scores_text">אין תוצאות \\n בצע אימון ראשון!</string>
+    <string name="save_results">שמור תוצאות</string>
+    <string name="score_tab_name">תוצאות</string>
+    <string name="share_group_url_label">שתף:</string>
+    <string name="single">יחיד</string>
+    <string name="start">התחל</string>
+    <string name="title_activity_choose_group">בחר קבוצה</string>
+    <string name="title_activity_choose_group_users">משתתפים</string>
+    <string name="title_activity_new_workout">אימון חדש</string>
+    <string name="type_group_name">כתוב את שם הקבוצה…</string>
+    <string name="unkown_error">שגיאה לא ידועה</string>
+    <string name="best_score">תוצאת שיא:</string>
+    <string name="ok">אישור</string>
+    <string name="cancel">ביטול</string>
+    <string name="group_share">שיתוף קבוצה</string>
+    <string name="group_share_text">היי, מזמין אותך להצטרף לקבוצה שלי \"%1$s\" באפליקציית &appname;!\n לחץ כאן: %2$s</string>
+    <string name="error_join_group">שגיאה בהצטרפות לקבוצה</string>
+    <string name="join_group_success">הצטרפת בהצלחה ל: %s</string>
+    <string name="no_groups_msg">אין לך קבוצות פעילות! צור חדשה או הצטרך בעזרת קישור מחבר</string>
+    <string name="show">הצג</string>
+    <string name="already_group_member">כבר חבר בקבוצה: %s</string>
+    <string name="pref_category_about">אודות</string>
+    <string name="pref_category_push_notification">התראות</string>
+    <string name="pref_highscore_push_notification">התראות פוש</string>
+    <string name="pref_highscore_push_notification_summ">קבלת עדכונים כשחבריך עוקפים את התוצאה שלך</string>
+    <string name="pref_licenses">רשיונות</string>
+    <string name="pref_licenses_summary">ספריות פיתוח שעזרו לנו!</string>
+    <string name="pref_rating">דירוג</string>
+    <string name="pref_rating_summ">דרגו אותנו 5 כוכבים!</string>
+    <string name="pref_support">תמיכה</string>
+    <string name="pref_support_mail_subject">עזרה עם SallyApp!</string>
+    <string name="pref_support_summary">קבלת עזרה מאיתנו.</string>
+    <string name="pref_terms_and_conditions">תנאי שימוש</string>
+    <string name="pref_terms_and_conditions_summary">כל מה שצריך לדעת.</string>
+    <string name="pref_version">גרסא</string>
+    <string name="settings">הגדרות</string>
+    <string name="title_activity_settings">הגדרות</string>
+    <string name="stop">עצור</string>
+    <string name="pref_privacy_policy">מדיניות פרטיות</string>
+    <string name="pref_privacy_policy_summary">חשוב לכולנו.</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shared_pref_user_id" translatable="false">shared_pref_user_id</string>
+    <string name="shared_pref_firebase_user_id" translatable="false">shared_pref_firebase_user_id</string>
+    <string name="shared_pref_user_jwt" translatable="false">shared_pref_user_jwt</string>
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.workout.sallyapp.view.activities.MainActivity">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/activity_main_coordinatorlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+                <!-- our tablayout to display tabs  -->
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:tabIndicatorColor="@android:color/white" />
+
+            </android.support.design.widget.AppBarLayout>
+
+            <include
+                android:id="@+id/content"
+                layout="@layout/content_main" />
+
+            <com.github.clans.fab.FloatingActionMenu
+                android:id="@+id/fab_menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:fab_colorNormal="@color/colorAccent"
+                app:fab_colorPressed="@color/app_primary_pressed"
+                app:fab_colorRipple="@color/app_ripple"
+                app:layout_behavior="com.workout.sallyapp.view.ui.FloatingActionMenuBehavior"
+                app:menu_animationDelayPerItem="18"
+                app:menu_icon="@drawable/ic_play_36dp"
+                app:menu_labels_style="@style/MenuLabelsStyle"
+                app:menu_shadowColor="#444">
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_single"
+                    style="@style/MenuButtonsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/person_24"
+                    app:fab_label="@string/single" />
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_multi"
+                    style="@style/MenuButtonsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/people_24"
+                    app:fab_label="@string/friends" />
+
+            </com.github.clans.fab.FloatingActionMenu>
+        </android.support.design.widget.CoordinatorLayout>
+    </RelativeLayout>
+</layout>

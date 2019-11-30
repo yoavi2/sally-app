@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+            android:id="@+id/fragment_dialog_group_users_url_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"
+            android:padding="4dp"
+            android:layout_margin="4dp">
+
+        <View
+                android:id="@+id/fragment_dialog_group_users_top_divider"
+                style="@style/Divider_light"
+                android:padding="1dp"
+                android:layout_gravity="top"
+                android:layout_alignParentTop="true"/>
+
+        <TextView
+                android:id="@+id/fragment_dialog_group_users_url_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="4dp"
+                android:paddingEnd="0dp"
+                android:paddingStart="4dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/share_group_url_label"
+                />
+
+        <TextView
+                android:id="@+id/fragment_dialog_group_users_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_centerVertical="true"
+                android:maxLines="1"
+                android:paddingEnd="4dp"
+                android:paddingStart="4dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="7dp"
+                android:textColor="@android:color/black"
+                android:clickable="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:scrollHorizontally="true"
+                android:textSize="14sp"
+                android:layout_toStartOf="@+id/fragment_dialog_group_users_share_url"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_alignBottom="@+id/fragment_dialog_group_users_url_label"
+                android:layout_toEndOf="@+id/fragment_dialog_group_users_url_label"/>
+
+        <ImageButton
+                android:id="@+id/fragment_dialog_group_users_share_url"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:clickable="true"
+                android:layout_centerVertical="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/ic_action_share"
+                android:layout_alignParentEnd="true"
+                />
+
+        <View android:id="@+id/fragment_dialog_group_users_bottom_divider"
+              style="@style/Divider_light"
+              android:padding="1dp"
+              android:layout_below="@id/fragment_dialog_group_users_url_label"
+              android:layout_gravity="bottom"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_dialog_group_users_list"
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/item_user_score"
+            android:layout_below="@id/fragment_dialog_group_users_url_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>

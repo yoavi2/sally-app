@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="sally_up_challenge_id">1</integer>
+    <string name="sally_up_challenge_name" translatable="false">Sally</string>
+    <string name="sally_up_youtube" translatable="false">41N6bKO-NVI</string>
+    <integer name="sally_up_length">233</integer>
+
+</resources>

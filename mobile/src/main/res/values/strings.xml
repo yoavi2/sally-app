@@ -1,0 +1,79 @@
+<!DOCTYPE resources [
+        <!ENTITY appname "SallyApp">
+        <!ENTITY appurl "http://sallyapp.westeurope.azurecontainer.io:4567">
+        <!ENTITY apphost "sallyapp.westeurope.azurecontainer.io">
+    ]>
+
+<resources>
+    <string name="app_name" translatable="false">&appname;</string>
+    <string name="server_url" translatable="false">&appurl;</string>
+    <string name="server_host" translatable="false">&apphost;</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="main_tab_name">You</string>
+    <string name="score_tab_name">Scores</string>
+    <string name="group_tab_name">Groups</string>
+
+    <string name="title_activity_new_workout">New Workout</string>
+    <string name="action_logout">Log out</string>
+    <string name="save_results">Save Results</string>
+    <string name="start">Start</string>
+    <string name="single">Single</string>
+    <string name="friends">Friends</string>
+    <string name="finished">Finished!</string>
+    <string name="no_scores_text">No scores \nRecord your first workout!</string>
+    <string name="graph_scores_label">Scores</string>
+    <string name="delete_score_title">Delete score?</string>
+    <string name="no_internet_connection">No Internet connection</string>
+    <string name="unkown_error">Unknown error</string>
+    <string name="error_saving_user">Error Saving user</string>
+    <string name="error_creating_user">Error creating user</string>
+    <string name="no_groups_text">No groups yet\nAdd a new group and start training with friends!</string>
+    <string name="group_members_count">%d members</string>
+    <string name="group_member_count">%d member</string>
+    <string name="action_new_group">New group</string>
+    <string name="exit_group_title">Exit group?</string>
+    <string name="title_activity_choose_group">Choose Group</string>
+    <string name="title_activity_choose_group_users">Participants</string>
+    <string name="atleast_one_friend">You must select at least one friend</string>
+    <string name="type_group_name">Type group name…</string>
+    <string name="group_name_label">Name:</string>
+    <string name="create">Create</string>
+    <string name="share_group_url_label">Share:</string>
+    <string name="group_url_copied">Group join link copied to clipboard</string>
+    <string name="best_score">Best Score:</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="asset_statements" translatable="false">[{\n  \"relation\": [\"delegate_permission/common.handle_all_urls\"],\n  \"target\": {\n    \"namespace\": \"web\",\n    \"site\": \"&appurl;\",\n  }\n}]</string>
+    <string name="join_group_success">Joined successfully to: %s</string>
+    <string name="already_group_member">Already a member of: %s</string>
+    <string name="show">Show</string>
+    <string name="error_join_group">Error joining group</string>
+    <string name="no_groups_msg">You don\'t have any groups!   Create new or join via a link from a friend</string>
+    <string name="group_share_text">Hi, You\'re welcome to join my group \"%1$s\" in &appname;! Click here:\n%2$s</string>
+    <string name="group_share">Group Share</string>
+    <string name="pref_highscore_push_notification">Push notifications</string>
+    <string name="pref_highscore_push_notification_summ">Receive updates when your friends beat your score</string>
+    <string name="pref_category_push_notification">Notifications</string>
+    <string name="pref_category_about">About</string>
+    <string name="pref_rating">Rate &appname;</string>
+    <string name="pref_rating_summ">Give us 5 stars!</string>
+    <string name="pref_licenses">Licenses</string>
+    <string name="pref_licenses_summary">Sweet software that helped us!</string>
+    <string name="pref_terms_and_conditions">Terms and Conditions</string>
+    <string name="pref_terms_and_conditions_summary">Everything you need to know.</string>
+    <string name="pref_privacy_policy">Privacy Policy</string>
+    <string name="pref_privacy_policy_summary">Important for both of us.</string>
+    <string name="pref_licenses_url" translatable="false">&appurl;/licenses.html</string>
+    <string name="pref_terms_url" translatable="false">&appurl;/terms_and_conditions.html</string>
+    <string name="pref_privacy_policy_url" translatable="false">&appurl;/privacy_policy.html</string>
+    <string name="pref_support">Support</string>
+    <string name="pref_support_summary">Get help from us.</string>
+    <string name="pref_support_mailto" translatable="false">mailto:yoav.codish.apps@gmail.com</string>
+    <string name="pref_support_mail_subject">SallyApp help!</string>
+    <string name="pref_version">Version</string>
+    <string name="title_activity_webview" translatable="false">WebViewActivity</string>
+    <string name="settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="stop">Stop</string>
+</resources>

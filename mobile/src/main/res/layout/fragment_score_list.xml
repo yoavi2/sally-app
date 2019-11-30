@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <com.kennyc.view.MultiStateView
+            android:id="@+id/multiStateView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:msv_emptyView="@layout/empty_scores"
+            app:msv_viewState="empty">
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:context="com.workout.sallyapp.view.fragments.ScoreFragment">
+
+                <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart"
+                        android:layout_alignParentTop="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginTop="8dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list"
+                        android:name="com.workout.sallyapp.view.ScoreFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/chart"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layoutManager="LinearLayoutManager"
+                        tools:listitem="@layout/item_score"/>
+            </RelativeLayout>
+        </ScrollView>
+
+    </com.kennyc.view.MultiStateView>
+
+
+</layout>

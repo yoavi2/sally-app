@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="24dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/fragment_main_user_img"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yoav"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="36sp"
+                android:id="@+id/fragment_main_user_name"
+                android:layout_below="@+id/fragment_main_user_img"
+                android:layout_centerHorizontal="true"/>
+
+        <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:srcCompat="@drawable/ic_trophy"
+                android:visibility="invisible"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="24dp"
+                android:id="@+id/fragment_main_trophy"
+                android:layout_below="@+id/fragment_main_user_name"
+                android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/best_score"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="invisible"
+                android:id="@+id/fragment_main_highscore_label"
+                android:layout_marginEnd="8dp"
+                android:layout_below="@+id/fragment_main_trophy"
+                android:layout_alignEnd="@+id/fragment_main_trophy"
+                android:layout_marginTop="8dp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3:25"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:visibility="invisible"
+                android:id="@+id/fragment_main_highscore_text"
+                android:layout_alignBaseline="@+id/fragment_main_highscore_label"
+                android:layout_alignBottom="@+id/fragment_main_highscore_label"
+                android:layout_toEndOf="@+id/fragment_main_highscore_label"/>
+    </RelativeLayout>
+
+</layout>

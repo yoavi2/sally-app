@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.workout.sallyapp">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+            android:name=".view.MyApplication"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <meta-data
+                android:name="asset_statements"
+                android:resource="@string/asset_statements"/>
+
+        <activity
+                android:name=".view.activities.LoginActivity"
+                android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                        android:host="@string/server_host"
+                        android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                        android:host="@string/server_host"
+                        android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".view.activities.MainActivity"
+                android:configChanges="orientation"
+                android:label="@string/app_name"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".view.activities.NewWorkoutActivityMulti"
+                android:configChanges="orientation"
+                android:label="@string/title_activity_new_workout"
+                android:parentActivityName=".view.activities.MainActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.workout.sallyapp.view.activities.MainActivity"/>
+        </activity>
+        <activity
+                android:name=".view.activities.NewWorkoutActivitySingle"
+                android:configChanges="orientation"
+                android:label="@string/title_activity_new_workout"
+                android:parentActivityName=".view.activities.MainActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".view.activities.ChooseGroupActivity"
+                android:configChanges="orientation"
+                android:label="@string/title_activity_choose_group"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".view.activities.ChooseGroupUsersActivity"
+                android:configChanges="orientation"
+                android:label="@string/title_activity_choose_group_users"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+                android:name=".view.activities.SettingsActivity"
+                android:configChanges="orientation"
+                android:label="@string/title_activity_settings"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+                android:name=".view.activities.WebViewActivity"
+                android:configChanges="orientation"
+                android:label="@string/title_activity_webview"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="activity.webview.open"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="@string/server_host"/>
+                <data android:path="/licenses.html"/>
+                <data android:path="/terms_and_conditions.html"/>
+                <data android:path="/privacy_policy.html"/>
+            </intent-filter>
+        </activity>
+
+        <provider
+                android:name="com.raizlabs.android.dbflow.runtime.StubContentProvider"
+                android:authorities="${applicationId}"
+                android:exported="false"/>
+
+        <service android:name=".view.notifications.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name=".view.notifications.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+                android:name=".view.services.MainActivityIntentService"
+                android:exported="false"/>
+        <service
+                android:name=".view.services.SettingsIntentService"
+                android:exported="false"/>
+
+        <!--
+     Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+                android:name="com.google.firebase.messaging.default_notification_icon"
+                android:resource="@drawable/ic_icon_blue"/>
+        <!--
+         Set color used with incoming notification messages. This is used when no color is set for the incoming
+         notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+                android:name="com.google.firebase.messaging.default_notification_color"
+                android:resource="@color/colorAccent"/>
+        <meta-data
+                android:name="io.fabric.ApiKey"
+                android:value="df05a2c2bfc3ffa5863708b9c5a9a9f7cc99f93f"
+                tools:replace="android:value"/>
+    </application>
+
+</manifest>
