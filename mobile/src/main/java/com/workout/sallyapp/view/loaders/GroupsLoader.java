@@ -30,7 +30,6 @@ public class GroupsLoader extends BaseDbflowCursorListLoader<GroupEntity> {
                 .where(GroupEntity_UserEntity_Table.userEntity_serverId.is(mUserID))
                 .cursorList();
 
-
         return mData;
     }
 }

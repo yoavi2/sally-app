@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Created by Yoav on 27-Apr-17.
  */
-@Table(database = SallyDatabase.class, name = GroupEntity.TABLE_NAME, cachingEnabled = true)
+@Table(database = SallyDatabase.class, name = GroupEntity.TABLE_NAME)
 @ManyToMany(referencedTable = UserEntity.class)
 public class GroupEntity extends BaseModel implements Parcelable {
     public static final String TABLE_NAME = "Group";
