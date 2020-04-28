@@ -299,6 +299,7 @@ public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSe
     protected void onResume() {
         super.onResume();
         getScores();
+        getGroups();
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -320,9 +321,6 @@ public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSe
             groupFragment = GroupFragment.newInstance();
             adapter.addFragment(groupFragment, getResources().getString(R.string.group_tab_name));
             mGroupTabId = 2;
-
-            // Make network request
-            getGroups();
         }
         // Anonymous user
         else {

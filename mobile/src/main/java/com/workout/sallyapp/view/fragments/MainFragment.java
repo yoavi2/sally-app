@@ -21,7 +21,7 @@ import com.workout.sallyapp.view.ui.InitialsGenerator;
 
 public class MainFragment extends Fragment implements LoaderManager.LoaderCallbacks<Integer> {
 
-    public static final int HISHSCORE_CURSOR_LIST_LOADER_ID = 1;
+    public static final int HIGHSCORE_CURSOR_LIST_LOADER_ID = 1;
     public static String ARG_USER_NAME = "main_fragment_user_name";
     public static String ARG_USER_PHOTO_URL = "arg_user_photo_url";
 
@@ -107,7 +107,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         }
 
         // db
-        getLoaderManager().initLoader(HISHSCORE_CURSOR_LIST_LOADER_ID, null, this);
+        getLoaderManager().initLoader(HIGHSCORE_CURSOR_LIST_LOADER_ID, null, this);
     }
 
     @Override

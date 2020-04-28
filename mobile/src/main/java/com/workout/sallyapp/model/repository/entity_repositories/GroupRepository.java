@@ -16,6 +16,7 @@ import com.workout.sallyapp.model.repository.entity_repositories.base.BaseDbRepo
 import com.workout.sallyapp.model.repository.interfaces.DbTransactionCreator;
 import com.workout.sallyapp.model.repository.interfaces.RepositoryTransactionEvent;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -88,6 +89,9 @@ public class GroupRepository extends BaseDbRepository {
             groupEntityUserEntity.setUserEntity(user);
             mGroupUserRepository.saveGroupUserSync(groupEntityUserEntity);
         }
+
+        // Delete all other nonexistent users (Probably left the group)
+        deleteNonexistentGroupUsersSync(groupEntity, group);
     }
 
     public long getGroupCountSync(long userId) {
@@ -130,4 +134,24 @@ public class GroupRepository extends BaseDbRepository {
         }, listener);
     }
 
+    private void deleteNonexistentGroupUsersSync(GroupEntity dbGroup, GroupEntity serverGroup) {
+        if (dbGroup.getUsers().size() <= serverGroup.getUsers().size()) {
+            return;
+        }
+
+        List<UserEntity> dbGroupUsers = dbGroup.getUsers();
+        ArrayList<Long> groupUserIdsToDelete = new ArrayList<>(dbGroupUsers.size());
+
+        for (UserEntity user : dbGroupUsers) {
+            groupUserIdsToDelete.add(user.serverId);
+        }
+
+        for (UserEntity user : serverGroup.getUsers()) {
+            groupUserIdsToDelete.remove(user.serverId);
+        }
+
+        for (Long userId : groupUserIdsToDelete) {
+            mGroupUserRepository.deleteGroupUser(dbGroup.id, userId);
+        }
+    }
 }
