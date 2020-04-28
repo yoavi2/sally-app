@@ -26,6 +26,13 @@ public class GroupUserRepository {
                 .execute();
     }
 
+    public void deleteGroupUser(long groupId, long userId) {
+        SQLite.delete(GroupEntity_UserEntity.class)
+                .where(GroupEntity_UserEntity_Table.groupEntity_id.is(groupId))
+                .and(GroupEntity_UserEntity_Table.userEntity_serverId.is(userId))
+                .execute();
+    }
+
     public boolean isUserMemberSync(long groupId, long userId) {
         return SQLite.selectCountOf()
                 .from(GroupEntity_UserEntity.class)

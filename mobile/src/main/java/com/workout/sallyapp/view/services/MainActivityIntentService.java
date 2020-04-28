@@ -104,6 +104,7 @@ public class MainActivityIntentService extends IntentService {
             @Override
             public void onResponse(Call<List<GroupEntity>> call, Response<List<GroupEntity>> response) {
                 if (response.isSuccessful()) {
+                    // TODO: This performs many DB tasks, some can be optimized (e.g. no need to save the same user over and over again)
                     mGroupRepository.saveGroups(response.body(), null);
                 } else {
                     APIError error = mErrorUtils.parseError(response);
