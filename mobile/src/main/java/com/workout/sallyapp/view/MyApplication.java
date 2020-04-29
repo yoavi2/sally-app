@@ -4,7 +4,10 @@ import com.google.firebase.crash.FirebaseCrash;
 
 import android.app.Activity;
 import android.app.Application;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.Service;
+import android.os.Build;
 import android.support.multidex.MultiDex;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -14,10 +17,10 @@ import com.facebook.stetho.Stetho;
 import com.raizlabs.android.dbflow.config.DatabaseConfig;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
-import com.raizlabs.android.dbflow.list.FlowQueryList;
 import com.raizlabs.android.dbflow.runtime.ContentResolverNotifier;
 import com.squareup.leakcanary.LeakCanary;
 import com.workout.sallyapp.BuildConfig;
+import com.workout.sallyapp.R;
 import com.workout.sallyapp.controller.dagger.components.DaggerAppComponent;
 import com.workout.sallyapp.model.databases.SallyDatabase;
 
@@ -39,7 +42,8 @@ public class MyApplication extends Application implements HasActivityInjector,
         HasSupportFragmentInjector,
         HasServiceInjector {
 
-//    private static final String BASE_URL = "http://10.0.2.2:4567/"; // Debug URL
+    public static final String NOTIFICATION_CHANNEL_ID = "5555";
+    //    private static final String BASE_URL = "http://10.0.2.2:4567/"; // Debug URL
     private static final String BASE_URL = "http://sallyapp.westeurope.azurecontainer.io:4567/"; // prod URL
 
     @Inject
@@ -81,6 +85,24 @@ public class MyApplication extends Application implements HasActivityInjector,
                 .application(this)
                 .build()
                 .inject(this);
+
+        createNotificationChannel();
+    }
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.channel_name);
+            String description = getString(R.string.channel_description);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
     private static class FirebaseTree extends Timber.Tree {

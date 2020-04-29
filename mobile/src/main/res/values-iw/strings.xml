@@ -65,4 +65,6 @@
     <string name="stop">עצור</string>
     <string name="pref_privacy_policy">מדיניות פרטיות</string>
     <string name="pref_privacy_policy_summary">חשוב לכולנו.</string>
+    <string name="channel_name">שיאים</string>
+    <string name="channel_description">שיאים חדשים של חברים</string>
 </resources>

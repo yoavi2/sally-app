@@ -14,6 +14,8 @@ import android.support.v4.app.NotificationCompat;
 import com.workout.sallyapp.R;
 import com.workout.sallyapp.view.activities.LoginActivity;
 
+import static com.workout.sallyapp.view.MyApplication.NOTIFICATION_CHANNEL_ID;
+
 /**
  * Created by Yoav on 21-May-17.
  */
@@ -40,7 +42,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 PendingIntent.FLAG_ONE_SHOT);
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
         notificationBuilder.setSmallIcon(R.drawable.ic_notification_icon)
                 .setContentTitle(messageTitle)
                 .setContentText(messageBody)
