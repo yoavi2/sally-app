@@ -69,7 +69,6 @@ public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSe
     private ActivityMainBinding bindingActivity;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private ViewPagerAdapter adapter;
 
     private boolean mIsSignedIn;
     private int mGroupTabId;
@@ -303,7 +302,7 @@ public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSe
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         GroupFragment groupFragment = null;
 
