@@ -55,7 +55,7 @@ import timber.log.Timber;
 
 import static com.firebase.ui.auth.util.Preconditions.checkNotNull;
 
-public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSelectedListener {
+public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSelectedListener, GroupFragment.GroupsRefreshListener {
 
     @Inject
     GroupAPI mGroupApi;
@@ -117,6 +117,20 @@ public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSe
         tabLayout.addOnTabSelectedListener(this);
 
         MenuFabCreateCustomAnimation();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        getGroups();
+    }
+    
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        getScores();
     }
 
     private void handleDynamicLink() {
@@ -294,13 +308,6 @@ public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSe
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getScores();
-        getGroups();
-    }
-
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
@@ -396,5 +403,10 @@ public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSe
         intent.putExtra(MainActivityIntentService.REQUEST_TYPE, type);
         intent.putExtra(MainActivityIntentService.USER_SERVER_ID, mCurrentUser.serverId);
         startService(intent);
+    }
+
+    @Override
+    public void onGroupsRefresh() {
+        getGroups();
     }
 }

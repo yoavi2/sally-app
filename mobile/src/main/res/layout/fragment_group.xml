@@ -7,23 +7,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <com.kennyc.view.MultiStateView
-                android:id="@+id/multiStateView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:msv_emptyView="@layout/empty_groups"
-                app:msv_viewState="empty">
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshGroups"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
-                    android:id="@+id/list"
-                    android:name="com.workout.sallyapp.view.GroupFragment"
+            <com.kennyc.view.MultiStateView
+                    android:id="@+id/multiStateView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layoutManager="LinearLayoutManager"
-                    tools:listitem="@layout/item_group"/>
+                    app:msv_emptyView="@layout/empty_groups"
+                    app:msv_viewState="empty">
 
-        </com.kennyc.view.MultiStateView>
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list"
+                        android:name="com.workout.sallyapp.view.GroupFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutManager="LinearLayoutManager"
+                        tools:listitem="@layout/item_group"/>
 
+            </com.kennyc.view.MultiStateView>
+        </android.support.v4.widget.SwipeRefreshLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>
 

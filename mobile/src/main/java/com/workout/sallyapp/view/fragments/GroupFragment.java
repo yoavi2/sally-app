@@ -4,11 +4,13 @@ package com.workout.sallyapp.view.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -50,6 +52,10 @@ import timber.log.Timber;
  */
 public class GroupFragment extends Fragment implements LoaderManager.LoaderCallbacks<FlowCursorList<GroupEntity>>, GroupRecyclerViewAdapter.OnGroupListInteraction {
 
+    public interface GroupsRefreshListener {
+        void onGroupsRefresh();
+    }
+
     private static final int GROUP_FLOW_CURSOR_LIST_LOADER_ID = 3;
     private static final int CREATE_GROUP_REQUEST_CODE = 1;
 
@@ -61,8 +67,9 @@ public class GroupFragment extends Fragment implements LoaderManager.LoaderCallb
     GroupRepository mGroupRepository;
 
     private FragmentGroupBinding binding;
-    private RecyclerView mRecyclerView;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     private GroupRecyclerViewAdapter mAdapter;
+    private GroupsRefreshListener mOnGroupsRefresh = null;
 
     public GroupFragment() {
         // Required empty public constructor
@@ -85,6 +92,12 @@ public class GroupFragment extends Fragment implements LoaderManager.LoaderCallb
         AndroidSupportInjection.inject(this);
 
         super.onAttach(context);
+
+        try {
+            mOnGroupsRefresh = (GroupsRefreshListener) context;
+        } catch (ClassCastException castException) {
+            Timber.w("Parent activity should implement GroupsRefreshListener");
+        }
     }
 
     @Override
@@ -95,9 +108,28 @@ public class GroupFragment extends Fragment implements LoaderManager.LoaderCallb
         setHasOptionsMenu(true);
 
         // List
-        mRecyclerView = binding.list;
         mAdapter = new GroupRecyclerViewAdapter(getActivity(), this, true);
-        mRecyclerView.setAdapter(mAdapter);
+        binding.list.setAdapter(mAdapter);
+        mSwipeRefreshLayout = binding.swipeRefreshGroups;
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if (mOnGroupsRefresh != null) {
+                    mOnGroupsRefresh.onGroupsRefresh();
+
+                    // TODO: A better way would be to correlate this with the actual network request
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(mSwipeRefreshLayout.isRefreshing()) {
+                                mSwipeRefreshLayout.setRefreshing(false);
+                            }
+                        }
+                    }, 700);
+                }
+            }
+        });
 
         // db
         getLoaderManager().initLoader(GROUP_FLOW_CURSOR_LIST_LOADER_ID, null, this);
