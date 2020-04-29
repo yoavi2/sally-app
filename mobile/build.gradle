@@ -134,7 +134,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-crash:11.8.0'
     implementation 'com.google.firebase:firebase-messaging:11.8.0'
     implementation 'com.google.firebase:firebase-invites:11.8.0'
-    implementation 'com.google.firebase:firebase-ads:11.8.0'
 
     // Android
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
