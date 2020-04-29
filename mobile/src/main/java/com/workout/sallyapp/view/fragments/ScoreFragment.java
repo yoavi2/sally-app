@@ -130,6 +130,8 @@ public class ScoreFragment extends Fragment implements LoaderManager.LoaderCallb
         }
 
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setNestedScrollingEnabled(false); // Enables smooth scrolling
+
 
         // db
         getLoaderManager().initLoader(SCORE_FLOW_CURSOR_LIST_LOADER_ID, null, this);
