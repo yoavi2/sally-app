@@ -120,6 +120,20 @@ public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSe
         MenuFabCreateCustomAnimation();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        getGroups();
+    }
+    
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        getScores();
+    }
+
     private void handleDynamicLink() {
         FirebaseDynamicLinks.getInstance()
                 .getDynamicLink(getIntent())
@@ -293,13 +307,6 @@ public class MainActivity extends BaseSallyActivity implements TabLayout.OnTabSe
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getScores();
-        getGroups();
     }
 
     private void setupViewPager(ViewPager viewPager) {
