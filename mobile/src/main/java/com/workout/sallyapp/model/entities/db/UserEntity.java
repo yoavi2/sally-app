@@ -46,7 +46,6 @@ public class UserEntity extends BaseModel implements Parcelable {
     @Expose
     public String photoUrl;
 
-    @Column
     @Nullable
     @SerializedName("email")
     @Expose
@@ -74,7 +73,6 @@ public class UserEntity extends BaseModel implements Parcelable {
     public static UserEntity userFromFirebaseUser(@NonNull FirebaseUser fbUser) {
         return new UserEntity(fbUser.getUid(), fbUser.getDisplayName(), fbUser.getPhotoUrl() != null ? fbUser.getPhotoUrl().toString() : null, fbUser.getEmail());
     }
-
 
     @Override
     public int describeContents() {

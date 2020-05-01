@@ -76,7 +76,6 @@ public class UserRepository extends BaseDbRepository {
                     Arrays.asList(
                             UserEntity_Table.displayName.eq(user.displayName),
                             UserEntity_Table.serverId.eq(user.serverId),
-                            UserEntity_Table.email.eq(user.email),
                             UserEntity_Table.firebaseUId.eq(user.firebaseUId),
                             UserEntity_Table.photoUrl.eq(user.photoUrl)));
 
