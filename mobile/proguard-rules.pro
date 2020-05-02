@@ -103,4 +103,4 @@
 -dontwarn com.facebook.stetho.**
 
 # Debug TODO: Remove this
--printconfiguration "build/outputs/mapping/configuration.txt"
+#-printconfiguration "build/outputs/mapping/configuration.txt"
