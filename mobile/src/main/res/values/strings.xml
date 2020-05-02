@@ -1,7 +1,9 @@
 <!DOCTYPE resources [
         <!ENTITY appname "SallyApp">
-        <!ENTITY appurl "http://sallyapp.westeurope.azurecontainer.io:4567">
-        <!ENTITY apphost "sallyapp.westeurope.azurecontainer.io">
+<!--        <!ENTITY appurl "http://sallyapp.westeurope.azurecontainer.io:4567">-->
+<!--        <!ENTITY apphost "sallyapp.westeurope.azurecontainer.io">        -->
+        <!ENTITY appurl "http://sallyapp-dev.westeurope.azurecontainer.io:4567">
+        <!ENTITY apphost "sallyapp-dev.westeurope.azurecontainer.io">
     ]>
 
 <resources>

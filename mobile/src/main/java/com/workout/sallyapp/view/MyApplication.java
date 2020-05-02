@@ -44,7 +44,8 @@ public class MyApplication extends Application implements HasActivityInjector,
 
     public static final String NOTIFICATION_CHANNEL_ID = "5555";
     //    private static final String BASE_URL = "http://10.0.2.2:4567/"; // Debug URL
-    private static final String BASE_URL = "http://sallyapp.westeurope.azurecontainer.io:4567/"; // prod URL
+    private static final String BASE_URL = "http://sallyapp-dev.westeurope.azurecontainer.io:4567/"; // dev URL
+//    private static final String BASE_URL = "http://sallyapp.westeurope.azurecontainer.io:4567/"; // prod URL
 
     @Inject
     DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
