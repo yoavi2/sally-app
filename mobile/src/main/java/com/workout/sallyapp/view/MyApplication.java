@@ -43,9 +43,9 @@ public class MyApplication extends Application implements HasActivityInjector,
         HasServiceInjector {
 
     public static final String NOTIFICATION_CHANNEL_ID = "5555";
-    //    private static final String BASE_URL = "http://10.0.2.2:4567/"; // Debug URL
-    private static final String BASE_URL = "http://sallyapp-dev.westeurope.azurecontainer.io:4567/"; // dev URL
-//    private static final String BASE_URL = "http://sallyapp.westeurope.azurecontainer.io:4567/"; // prod URL
+//    private static final String LOCAL_BASE_URL = "http://10.0.2.2:4567/";
+    private static final String DEV_BASE_URL = "http://sallyapp-dev.westeurope.azurecontainer.io:4567/";
+    private static final String PROD_BASE_URL = "http://sallyapp.westeurope.azurecontainer.io:4567/";
 
     @Inject
     DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
@@ -82,7 +82,7 @@ public class MyApplication extends Application implements HasActivityInjector,
 
         DaggerAppComponent
                 .builder()
-                .withBaseUrl(BASE_URL)
+                .withBaseUrl(BuildConfig.DEBUG ? DEV_BASE_URL : PROD_BASE_URL)
                 .application(this)
                 .build()
                 .inject(this);
